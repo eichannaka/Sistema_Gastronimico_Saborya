@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
+
+const authRoutes = require("./routes/auth.routes");
 const productosRoutes = require("./routes/productos.routes");
 const healthRoutes = require("./routes/health.routes");
 const categoriasRoutes = require("./routes/categorias.routes");
@@ -13,6 +15,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/auth", authRoutes);
 app.use("/productos", productosRoutes);
 app.use("/health", healthRoutes);
 app.use("/categorias", categoriasRoutes);
